@@ -4,6 +4,7 @@ namespace SnakeAndLadders
 {
     class Program
     {
+		//static constants
         const int NO_PLAY = 0;
         const int LADDER = 1;
         const int SNAKE = 2;
@@ -31,8 +32,11 @@ namespace SnakeAndLadders
             Console.WriteLine("Snake! :-( Player " + playerTurn + " Position :" + position);
 			return position;
 		}
-		static void Main(string[] args)
-        {
+
+       
+        private static void playGame()
+		{
+			/// <summary>Snake and Ladders 2 player game is played</summary>
 			//variables
 			int player1Position = 0;
 			int player2Position = 0;
@@ -52,7 +56,7 @@ namespace SnakeAndLadders
 					else
 						turn = PLAYER_1_TURN;
 				}
-				int diceThrow = rand.Next(1, 6); 
+				int diceThrow = rand.Next(1, 6);
 				diceThrowCount++;
 				int option = rand.Next(2);
 				switch (option)
@@ -60,9 +64,9 @@ namespace SnakeAndLadders
 					case NO_PLAY:
 
 						if (turn == PLAYER_1_TURN)
-                            Console.WriteLine("No Play.. :-| Player 1 Position :" + player1Position);
-					else
-                            Console.WriteLine("No Play.. :-| Player 2 Position :" + player2Position);
+							Console.WriteLine("No Play.. :-| Player 1 Position :" + player1Position);
+						else
+							Console.WriteLine("No Play.. :-| Player 2 Position :" + player2Position);
 						break;
 
 					case LADDER:
@@ -86,11 +90,17 @@ namespace SnakeAndLadders
 
 				}//end switch
 			}//end while
-            Console.WriteLine("No of times dice was cast: " + diceThrowCount);
+			Console.WriteLine("No of times dice was cast: " + diceThrowCount);
 			if (player1Position == 100)
-                Console.WriteLine("Player 1 won!!");
-		else
-                Console.WriteLine("Player 2 won!!");
+				Console.WriteLine("Player 1 won!!");
+			else
+				Console.WriteLine("Player 2 won!!");
 		}
-    }
+
+
+		static void Main(string[] args)
+		{
+			playGame();
+		}	
+    }	
 }
