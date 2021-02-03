@@ -26,6 +26,10 @@ namespace SnakeAndLadders
                     case LADDER:
 
                         position += diceThrow;
+                        if (position > 100)
+                        {
+                            position -= diceThrow;
+                        }
                         Console.WriteLine("Player moved to : " + position);
                         break;
 
