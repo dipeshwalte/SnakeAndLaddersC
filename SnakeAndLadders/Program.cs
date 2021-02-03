@@ -12,31 +12,39 @@ namespace SnakeAndLadders
         {
             int position = 0;
             Random rand = new Random();
-            int diceThrow = rand.Next(1, 7);
-			int option = rand.Next(2);
-			switch (option)
-			{
-				case NO_PLAY:
+            while(position<100)
+            {
+                int diceThrow = rand.Next(1, 7);
+                int option = rand.Next(2);
+                switch (option)
+                {
+                    case NO_PLAY:
 
-                    Console.WriteLine("Player Remained at same position : "+position);
-					break;
+                        Console.WriteLine("Player Remained at same position : " + position);
+                        break;
 
-				case LADDER:
+                    case LADDER:
 
-                    position += diceThrow;
-                    Console.WriteLine("Player moved to : "+ position);
-					break;
+                        position += diceThrow;
+                        Console.WriteLine("Player moved to : " + position);
+                        break;
 
-				case SNAKE:
+                    case SNAKE:
 
-                    position -= diceThrow;
-                    Console.WriteLine("Player moved to : "+ position);
-					break;
+                        position -= diceThrow;
+                        if (position < 0)
+                        {
+                            position = 0;
+                        }
+                        Console.WriteLine("Player moved to : " + position);
+                        break;
 
-				default:
-					break;
+                    default:
+                        break;
 
-			}//end switch
+                }//end switch
+            }
+            
 		}
     }
 }
