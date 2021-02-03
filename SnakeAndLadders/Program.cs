@@ -11,10 +11,12 @@ namespace SnakeAndLadders
         static void Main(string[] args)
         {
             int position = 0;
+            int diceRollCount = 0;
             Random rand = new Random();
             while(position<100)
             {
                 int diceThrow = rand.Next(1, 7);
+                diceRollCount++;
                 int option = rand.Next(2);
                 switch (option)
                 {
@@ -47,8 +49,9 @@ namespace SnakeAndLadders
                         break;
 
                 }//end switch
-            }
-            
+            }//end while
+
+            Console.WriteLine("No of times dice was cast: "+diceRollCount);
 		}
     }
 }
